@@ -1,0 +1,10 @@
+.container-box {
+   width: 80%;
+   margin: 10px auto;
+   display: flex;
+   flex-direction: row;
+   .main {
+      width: 60%;
+      margin-right: 64px;
+   }
+}

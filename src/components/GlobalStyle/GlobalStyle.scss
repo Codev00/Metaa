@@ -1,0 +1,24 @@
+:root {
+   --bg--sidebar--light: #ffffff;
+   --bg--light: #fafafa;
+   --text--light: #333;
+   --bg--sidebar--dark: #000000;
+   --bg--dark: #121212;
+   --text--dark: #ffffff;
+   --line--light: #dbdbdb;
+   --width--sidebar: 18%;
+   --width--container: calc(100% - var(--width--sidebar));
+   --width--suggest: 25%;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   display: inline-block;
+   position: relative;
+   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
