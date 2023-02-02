@@ -1,7 +1,7 @@
 import Home from "../pages/Home";
 import Messages from "../pages/Messages";
 import Profile from "../pages/Profile";
-import { DefaultLayout } from "../Layout";
+import { DefaultLayout } from "../views";
 
 const publicRouter = [
    { path: "/", component: Home, layout: DefaultLayout },

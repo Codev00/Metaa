@@ -9,6 +9,7 @@
    --width--sidebar: 18%;
    --width--container: calc(100% - var(--width--sidebar));
    --width--suggest: 25%;
+   --shadow--box: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 }
 
 * {

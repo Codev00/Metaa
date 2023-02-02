@@ -1,10 +1,59 @@
 import classNames from "classnames/bind";
 import Style from "./Sidebar.module.scss";
-import { Link } from "react-router-dom";
+import Create from "../Create";
+import { useState } from "react";
+import SidebarItem from "./SidebarItem";
 
 const cn = classNames.bind(Style);
 
 function Sidebar() {
+   const [create, setCreate] = useState(false);
+   const handleCreate = (e) => {
+      e.preventDefault();
+      setCreate(!create);
+   };
+   const handlePreventDefault = (e) => {
+      e.preventDefault();
+   };
+   const SidebarList = [
+      {
+         title: "Home",
+         to: "/",
+         icon: <i className="fa-solid fa-house"></i>,
+         callback: () => {},
+      },
+      {
+         title: "Search",
+         to: "/search",
+         icon: <i className="fa-solid fa-magnifying-glass"></i>,
+         callback: handlePreventDefault,
+      },
+      {
+         title: "Messages",
+         to: "/messages",
+         icon: <i className="fa-brands fa-facebook-messenger"></i>,
+         callback: () => {},
+      },
+      {
+         title: "Create",
+         to: "/create",
+         icon: <i className="fa-regular fa-square-plus"></i>,
+         callback: handleCreate,
+      },
+      {
+         title: "Profile",
+         to: "/profile",
+         icon: <i className="fa-regular fa-user"></i>,
+         callback: () => {},
+      },
+      {
+         title: "Light",
+         to: "/light",
+         icon: <i class="fa-regular fa-moon"></i>,
+         callback: handlePreventDefault,
+      },
+   ];
+   console.log(SidebarList);
    return (
       <div className={cn("Sidebar")}>
          <div className={cn("logo")}>
@@ -12,39 +61,25 @@ function Sidebar() {
          </div>
          <div className={cn("nav-bar")}>
             <div className={cn("nav-bar-list")}>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="/">
-                     <i class="fa-solid fa-house"></i>Home
-                  </Link>
-               </div>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="">
-                     <i class="fa-solid fa-magnifying-glass"></i>Search
-                  </Link>
-               </div>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="/messages">
-                     <i class="fa-brands fa-facebook-messenger"></i>Messages
-                  </Link>
-               </div>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="">
-                     <i class="fa-regular fa-square-plus"></i>Create
-                  </Link>
-               </div>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="/profile">
-                     <i class="fa-regular fa-user"></i>Profile
-                  </Link>
-               </div>
-               <div className={cn("nav-bar-item")}>
-                  <Link to="">
-                     <i class="fa-regular fa-moon"></i>
-                     Dark/Light
-                  </Link>
-               </div>
+               {SidebarList.map((item, index) => (
+                  <div className={cn("nav-bar-item")}>
+                     <SidebarItem
+                        key={index}
+                        title={item.title}
+                        icon={item.icon}
+                        to={item.to}
+                        callback={item.callback}
+                     />
+                  </div>
+               ))}
             </div>
          </div>
+         <Create
+            data={create}
+            setData={(value) => {
+               setCreate(value);
+            }}
+         />
       </div>
    );
 }

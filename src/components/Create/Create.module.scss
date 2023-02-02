@@ -1,0 +1,44 @@
+.create {
+   display: flex;
+   position: fixed;
+   flex-direction: column;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgba(0, 0, 0, 0.7);
+   z-index: 10;
+   align-items: center;
+   justify-content: center;
+   .create-modal {
+      display: flex;
+      height: 600px;
+      width: 700px;
+      background-color: var(--bg--sidebar--light);
+      z-index: 10;
+      border-radius: 10px;
+      margin: 20px 0;
+      .title {
+         height: 42px;
+         width: 100%;
+         text-align: center;
+         border-bottom: 1px solid var(--line--light);
+         h1 {
+            line-height: 42px;
+            font-size: 18px;
+         }
+      }
+   }
+   i {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      font-size: 30px;
+      color: var(--bg--sidebar--light);
+      font-weight: 500;
+      cursor: pointer;
+   }
+}
+.close {
+   display: none;
+}
