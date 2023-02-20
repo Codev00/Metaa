@@ -1,12 +1,12 @@
 import Home from "../pages/Home";
 import Messages from "../pages/Messages";
 import Profile from "../pages/Profile";
-import { DefaultLayout } from "../views";
+import { DefaultView, MessageView, ProfileView } from "../views";
 
 const publicRouter = [
-   { path: "/", component: Home, layout: DefaultLayout },
-   { path: "/messages", component: Messages, layout: DefaultLayout },
-   { path: "/profile", component: Profile, layout: DefaultLayout },
+   { path: "/", component: Home, view: DefaultView },
+   { path: "/messages", component: Messages, view: MessageView },
+   { path: "/profile", component: Profile, view: ProfileView },
 ];
 
 export { publicRouter };

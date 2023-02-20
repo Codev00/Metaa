@@ -1,3 +1,4 @@
+import SuggestItem from "./SuggestItem";
 import classNames from "classnames/bind";
 import Style from "./Suggest.module.scss";
 
@@ -6,9 +7,28 @@ const cn = classNames.bind(Style);
 function Suggest() {
    return (
       <div className={cn("Suggest")}>
-         <div className={cn("user")}>User</div>
+         <div className={cn("user")}>
+            <div className={cn("user-avatar")}>
+               <img
+                  src="../../../public/images/no-avatar.jpg"
+                  alt="no avatar"
+               />
+            </div>
+            <div className={cn("user-name")}>
+               <span>Hamter</span>
+            </div>
+            <div className={cn("user-logout")}>
+               <a href="#">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+               </a>
+            </div>
+         </div>
          <div className={cn("Suggest-list")}>
-            <div className={cn("Suggest-item")}></div>
+            <span>Suggestions for you</span>
+            <SuggestItem
+               imgUrl={"../../../public/images/no-avatar.jpg"}
+               name={"Hamter Hamter"}
+            />
          </div>
       </div>
    );

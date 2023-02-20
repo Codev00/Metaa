@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import Style from "./Sidebar.module.scss";
 import Create from "../Create";
 import { useState } from "react";
-import SidebarItem from "./SidebarItem";
+import NavItem from "./NavItem";
 
 const cn = classNames.bind(Style);
 
@@ -49,11 +49,11 @@ function Sidebar() {
       {
          title: "Light",
          to: "/light",
-         icon: <i class="fa-regular fa-moon"></i>,
+         icon: <i className="fa-regular fa-moon"></i>,
          callback: handlePreventDefault,
       },
    ];
-   console.log(SidebarList);
+
    return (
       <div className={cn("Sidebar")}>
          <div className={cn("logo")}>
@@ -62,15 +62,13 @@ function Sidebar() {
          <div className={cn("nav-bar")}>
             <div className={cn("nav-bar-list")}>
                {SidebarList.map((item, index) => (
-                  <div className={cn("nav-bar-item")}>
-                     <SidebarItem
-                        key={index}
-                        title={item.title}
-                        icon={item.icon}
-                        to={item.to}
-                        callback={item.callback}
-                     />
-                  </div>
+                  <NavItem
+                     key={index}
+                     title={item.title}
+                     icon={item.icon}
+                     to={item.to}
+                     callback={item.callback}
+                  />
                ))}
             </div>
          </div>

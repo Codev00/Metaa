@@ -6,14 +6,16 @@ const cn = classNames.bind(Style);
 
 function SidebarItem({ title, icon, to, callback }) {
    return (
-      <NavLink
-         to={to}
-         onClick={callback}
-         className={(nav) => cn({ active: nav.isActive })}
-      >
-         {icon}
-         {title}
-      </NavLink>
+      <div className={cn("nav-bar-item")}>
+         <NavLink
+            to={to}
+            onClick={callback}
+            className={(nav) => cn({ active: nav.isActive })}
+         >
+            {icon}
+            <h5>{title}</h5>
+         </NavLink>
+      </div>
    );
 }
 

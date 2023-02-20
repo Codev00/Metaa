@@ -1,10 +1,10 @@
 import classNames from "classnames/bind";
-import Style from "./DefaultLayout.module.scss";
-import { Sidebar, Suggest } from "../../components";
+import Style from "./MessageView.module.scss";
+import { Sidebar } from "../../components";
 
 const cn = classNames.bind(Style);
 
-function Layout({ children }) {
+function MessageView({ children }) {
    return (
       <div className={cn("wrapper")}>
          <Sidebar />
@@ -13,4 +13,4 @@ function Layout({ children }) {
    );
 }
 
-export default Layout;
+export default MessageView;

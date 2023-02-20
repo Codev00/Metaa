@@ -14,6 +14,7 @@
       display: flex;
       height: 600px;
       width: 700px;
+      flex-direction: column;
       background-color: var(--bg--sidebar--light);
       z-index: 10;
       border-radius: 10px;
@@ -26,6 +27,56 @@
          h1 {
             line-height: 42px;
             font-size: 18px;
+         }
+      }
+      .create-body {
+         height: 100%;
+         padding: 10px 15px 0 15px;
+         .file {
+            height: 60%;
+         }
+         .desc {
+            display: flex;
+            border: 1px solid var(--line--light);
+            border-radius: 10px;
+            padding: 5px;
+            height: 30%;
+            display: flex;
+            textarea {
+               outline: none;
+               // border: none;
+               width: 100%;
+               font-size: 1rem;
+               border: none;
+               height: 100%;
+               resize: none;
+               padding: 5px 8px;
+               &::-webkit-scrollbar {
+                  width: 8px;
+               }
+               &::-webkit-scrollbar-thumb {
+                  background-color: var(--line--light);
+                  border-radius: 20px;
+                  border: 3px solid var(--line--light);
+               }
+            }
+         }
+         .submit {
+            display: flex;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            button {
+               outline: none;
+               border: 2px solid #333;
+               border-radius: 7px;
+               padding: 7px 10px;
+               width: 100px;
+               font-weight: 600;
+               font-size: 1rem;
+               background-color: transparent;
+               cursor: pointer;
+            }
          }
       }
    }
