@@ -42,7 +42,7 @@ function Sidebar() {
       },
       {
          title: "Profile",
-         to: "/profile",
+         to: "/profile/:username",
          icon: <i className="fa-regular fa-user"></i>,
          callback: () => {},
       },

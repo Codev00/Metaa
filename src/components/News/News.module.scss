@@ -13,7 +13,8 @@
    min-height: 600px;
    width: 100%;
    border-bottom: 1px solid var(--line--light);
-   padding-bottom: 10px;
+   padding-bottom: 15px;
+   margin-bottom: 20px;
    .post-header {
       height: 50px;
       display: flex;
@@ -58,6 +59,7 @@
       padding-bottom: 6px;
       font-size: 24px;
       align-items: center;
+
       i {
          height: 24px;
          width: 24px;

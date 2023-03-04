@@ -1,3 +1,4 @@
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
 :root {
    --bg--sidebar--light: #ffffff;
    --bg--light: #fafafa;
@@ -25,4 +26,7 @@ body {
 }
 html {
    height: 0;
+}
+i.fa-solid.fa-heart.like {
+   color: red;
 }
