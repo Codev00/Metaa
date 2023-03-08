@@ -1,9 +1,22 @@
 import Style from "./Profile.module.scss";
 import classNames from "classnames/bind";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 const cn = classNames.bind(Style);
 
 function ProfileInfo() {
+   const [user, setUser] = useState({});
+   useEffect(() => {
+      const fetchUser = async () => {
+         const res = await axios.get(`/api/user?username=testuser`);
+         setUser(res.data);
+         console.log(res.data);
+      };
+
+      fetchUser();
+   }, []);
    return (
       <div className={cn("profile")}>
          <header>
@@ -12,7 +25,7 @@ function ProfileInfo() {
             </div>
             <div className={cn("info")}>
                <div className={cn("name")}>
-                  <span>Hamter</span>
+                  <span>{user.username}</span>
                </div>
                <div className={cn("desc")}>
                   <span>0 posts</span>

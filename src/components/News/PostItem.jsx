@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Style from "./News.module.scss";
 import axios from "axios";
 import { format } from "timeago.js";
+import { Link } from "react-router-dom";
 
 const cn = classNames.bind(Style);
 
@@ -12,7 +13,7 @@ function PostItem({ post }) {
    const [isLike, setIsLike] = useState(false);
    useEffect(() => {
       const fetchUsers = async () => {
-         const res = await axios.get(`api/user/${post.userId}`);
+         const res = await axios.get(`api/user?userId=${post.userId}`);
          setUser(res.data);
       };
       fetchUsers();
@@ -20,15 +21,15 @@ function PostItem({ post }) {
    return (
       <div className={cn("post-item")}>
          <div className={cn("post-header")}>
-            <a href="">
+            <Link to="/profile/:username/posts">
                <img
                   src={user.profileImg || "/images/no-avatar.jpg"}
                   alt="avatar"
                />
-            </a>
-            <a href="">
+            </Link>
+            <Link to="/profile/:username/posts">
                <span className={cn("name")}>{user.username}</span>
-            </a>
+            </Link>
             <span className={cn("timeline")}>• {format(post.createdAt)}</span>
          </div>
          <div className={cn("post-img")}></div>

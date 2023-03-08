@@ -3,6 +3,7 @@ import Style from "./Sidebar.module.scss";
 import Create from "../Create";
 import { useState } from "react";
 import NavItem from "./NavItem";
+import { Link } from "react-router-dom";
 
 const cn = classNames.bind(Style);
 
@@ -57,7 +58,9 @@ function Sidebar() {
    return (
       <div className={cn("Sidebar")}>
          <div className={cn("logo")}>
-            <h1>Metaa</h1>
+            <Link to="/">
+               <h1>Metaa</h1>
+            </Link>
          </div>
          <div className={cn("nav-bar")}>
             <div className={cn("nav-bar-list")}>

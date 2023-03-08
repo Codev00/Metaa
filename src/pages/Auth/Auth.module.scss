@@ -1,0 +1,62 @@
+.body {
+   display: flex;
+   overflow: auto;
+   height: 100%;
+   width: 100%;
+   align-items: center;
+   .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 800px;
+      height: 550px;
+      margin: 0 auto;
+      border-radius: 20px;
+      .right {
+         background-color: red;
+         width: 50%;
+         height: 100%;
+         border-radius: 15px 0 0 15px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 50px;
+            width: 300px;
+         }
+         input {
+            width: 200px;
+            height: 40px;
+            padding: 0 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #444;
+            font-size: 15px;
+            margin-top: 40px;
+            font-weight: bold;
+            outline: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+         }
+      }
+      .bg-sign-in {
+         background-color: aqua;
+      }
+      .bg-sign-up {
+         background-color: yellowgreen;
+      }
+      .left {
+         background: url(https://media4.giphy.com/media/BHNfhgU63qrks/giphy.gif)
+            center center no-repeat;
+         background-size: cover;
+         width: 50%;
+         height: 100%;
+         border-radius: 0 15px 15px 0;
+      }
+   }
+}
