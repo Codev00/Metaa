@@ -2,6 +2,8 @@ import classNames from "classnames/bind";
 import Style from "./Auth.module.scss";
 import { Login, Register } from "../../components";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const cn = classNames.bind(Style);
 
 function Auth() {
@@ -52,7 +54,7 @@ function Auth() {
             </div>
             <div className={cn("left")}>
                {status || <Login />}
-               {status && <Register />}
+               {status && <Register setState={(value) => setStatus(value)} />}
             </div>
          </div>
       </div>

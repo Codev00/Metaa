@@ -4,10 +4,12 @@ import Create from "../Create";
 import { useState } from "react";
 import NavItem from "./NavItem";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const cn = classNames.bind(Style);
 
 function Sidebar() {
+   const user = useSelector((state) => state.user.userInfo);
    const [create, setCreate] = useState(false);
    const handleCreate = (e) => {
       e.preventDefault();
@@ -43,7 +45,7 @@ function Sidebar() {
       },
       {
          title: "Profile",
-         to: "/profile/:username",
+         to: `/profile/${user.username}`,
          icon: <i className="fa-regular fa-user"></i>,
          callback: () => {},
       },

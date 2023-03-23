@@ -10,8 +10,6 @@ const publicRouter = [
    { path: "/profile/:username/posts", component: AllPost, view: ProfileView },
    { path: "/profile/:username/saved", component: Saved, view: ProfileView },
    { path: "/auth", component: Auth, view: LoginView },
-   { path: "/auth/login", component: Login, view: LoginView },
-   { path: "/auth/register", component: Register, view: LoginView },
 ];
 
 export { publicRouter };
