@@ -1,9 +1,13 @@
+div {
+   .Suggest {
+      background: transparent;
+   }
+}
 .Suggest {
    width: 40%;
    padding: 30px 20px 0 20px;
    height: 100vh;
    z-index: 1;
-
    .user {
       position: relative;
       display: flex;
@@ -77,6 +81,9 @@
             position: absolute;
             right: 0;
             line-height: 40px;
+            span {
+               color: rgb(13, 68, 218);
+            }
          }
       }
    }

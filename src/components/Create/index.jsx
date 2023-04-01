@@ -10,10 +10,15 @@ const cn = classNames.bind(Style);
 function Create({ data, setData }) {
    const user = useSelector((state) => state.user.userInfo);
    const [close, setClose] = useState(true);
-   const [files, setFiles] = useState([]);
-   const [haveFile, setHaveFile] = useState(false);
+   const [files, setFiles] = useState();
    const [label, setLabel] = useState(true);
    const desc = useRef();
+
+   useEffect(() => {
+      return () => {
+         files && URL.revokeObjectURL(files[0]);
+      };
+   }, [files]);
 
    useEffect(() => {
       if (data) {
@@ -22,15 +27,14 @@ function Create({ data, setData }) {
       }
    }, [data]);
    const handleClose = () => {
+      setFiles();
+      setLabel(true);
+      desc.current.value = "";
       setClose(!close);
-      setFiles([]);
-      setHaveFile(!haveFile);
-      setLabel(!label);
    };
    const handleFiles = (e) => {
       setFiles(e.currentTarget.files);
-      setHaveFile(!haveFile);
-      setLabel(!label);
+      setLabel(false);
    };
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -63,9 +67,14 @@ function Create({ data, setData }) {
       } catch (err) {
          console.log({ error: err });
       }
+      handleClose();
    };
+
    return (
-      <div className={cn("create", { close: close })}>
+      <div
+         className={cn("create", { close: close })}
+         style={{ background: "rgba(0, 0, 0, 0.5)" }}
+      >
          <i className="fa-solid fa-circle-xmark" onClick={handleClose}></i>
          <div className={cn("create-modal")}>
             <div className={cn("title")}>
@@ -83,16 +92,18 @@ function Create({ data, setData }) {
                            <h4>Select from computer</h4>
                         </label>
                      )}
-                     {haveFile &&
-                        Array.from(files).map((file, index) => (
-                           <h4 key={index}>{file.name}</h4>
-                        ))}
+                     {files && (
+                        <div className={cn("previewImg")}>
+                           <img src={URL.createObjectURL(files[0])} alt="" />
+                           <label htmlFor="files">ChangeImg</label>
+                        </div>
+                     )}
                      <input
                         type="file"
                         id="files"
-                        multiple
                         onChange={handleFiles}
                         hidden
+                        required
                      />
                   </div>
                   <div className={cn("desc")}>
@@ -100,9 +111,10 @@ function Create({ data, setData }) {
                         name="text"
                         id="text"
                         cols="30"
-                        rows="10"
+                        rows="5"
                         placeholder="Messages...."
                         ref={desc}
+                        autoComplete="off"
                      ></textarea>
                   </div>
                   <div className={cn("submit")}>

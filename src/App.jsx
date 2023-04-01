@@ -8,7 +8,7 @@ function App() {
    const user = useSelector((state) => state.user.userInfo);
    return (
       <Router>
-         <div className="App">
+         <div className="App dark">
             <Routes>
                {publicRouter.map((route, index) => {
                   const View = route.view === null ? Fragment : route.view;

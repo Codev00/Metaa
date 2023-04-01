@@ -21,7 +21,7 @@ function News() {
          );
       };
       fetchPosts();
-   }, []);
+   }, [posts]);
    return (
       <div className={cn("main")}>
          <Posts>

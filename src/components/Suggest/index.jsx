@@ -28,7 +28,7 @@ function Suggest() {
          dispatch(getAllUser(res.data));
       };
       fetchSuggest();
-   }, []);
+   }, [user]);
    const handleLogOut = () => {
       dispatch(logOut());
    };

@@ -28,13 +28,18 @@
             text-align: center;
             margin-bottom: 50px;
             width: 300px;
+            background: transparent;
+            h1,
+            span {
+               color: #111;
+            }
          }
          input {
             width: 200px;
             height: 40px;
             padding: 0 15px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #444;
+            background: rgb(33, 151, 250);
+            color: #ffffff;
             font-size: 15px;
             margin-top: 40px;
             font-weight: bold;
@@ -42,18 +47,23 @@
             border-radius: 5px;
             border: none;
             cursor: pointer;
+            box-shadow: 5px 5px 5px #111;
          }
       }
       .bg-sign-in {
-         background-color: aqua;
+         background-image: url("/background/signin.jpg");
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
       }
       .bg-sign-up {
-         background-color: yellowgreen;
+         background-image: url("/background/signup.jpg");
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
       }
       .left {
-         background: url(https://media4.giphy.com/media/BHNfhgU63qrks/giphy.gif)
-            center center no-repeat;
-         background-size: cover;
+         background: #111;
          width: 50%;
          height: 100%;
          border-radius: 0 15px 15px 0;

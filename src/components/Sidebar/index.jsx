@@ -45,7 +45,7 @@ function Sidebar() {
       },
       {
          title: "Profile",
-         to: `/profile/${user.username}`,
+         to: `/profile/${user.username}/posts`,
          icon: <i className="fa-regular fa-user"></i>,
          callback: () => {},
       },

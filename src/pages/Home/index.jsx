@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 const cn = classNames.bind(Style);
 
@@ -15,6 +16,9 @@ function Home() {
       if (!user) {
          navigate("/auth");
       }
+   }, []);
+   useLayoutEffect(() => {
+      window.document.title = "Metaa" + " • " + user.username;
    }, []);
    return (
       <Fragment>

@@ -31,15 +31,7 @@ function Auth() {
       setCount(Math.floor(Math.random() * listBg.length));
    }, []);
    return (
-      <div
-         className={cn("body")}
-         style={{
-            backgroundImage: `url(/background/${listBg[count]})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center, center",
-         }}
-      >
+      <div className={cn("body")}>
          <div className={cn("wrapper")}>
             <div className={cn("right", content.bg)}>
                <div className={cn("content")}>

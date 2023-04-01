@@ -1,6 +1,6 @@
 import { Login, Register } from "../components";
 import { AllPost, Saved } from "../components/Profile";
-import { Auth, Home, Messages, Profile } from "../pages";
+import { Auth, Home, Messages, Profile, Settings } from "../pages";
 import { DefaultView, MessageView, ProfileView, LoginView } from "../views";
 
 const publicRouter = [
@@ -10,6 +10,7 @@ const publicRouter = [
    { path: "/profile/:username/posts", component: AllPost, view: ProfileView },
    { path: "/profile/:username/saved", component: Saved, view: ProfileView },
    { path: "/auth", component: Auth, view: LoginView },
+   { path: "/account/edit", component: Settings, view: MessageView },
 ];
 
 export { publicRouter };

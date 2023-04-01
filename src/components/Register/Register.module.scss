@@ -3,11 +3,13 @@
    height: 450px;
    margin: 50px auto;
    border-radius: 20px;
+   transition: 0.25 ease;
 }
 .login .form {
    width: 100%;
    height: 100%;
    padding: 15px 25px;
+   background: #111;
 }
 .login .form h2 {
    color: #fff;

@@ -1,10 +1,11 @@
 import classNames from "classnames/bind";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Style from "./News.module.scss";
 import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { object } from "prop-types";
 
 const cn = classNames.bind(Style);
 
@@ -13,10 +14,10 @@ function PostItem({ post }) {
    const [likes, setLikes] = useState(post.likes.length);
    const [isLike, setIsLike] = useState(false);
    const currentUser = useSelector((state) => state.user.userInfo);
-   useEffect(() => {
+   useLayoutEffect(() => {
       setIsLike(post.likes.includes(currentUser._id));
    }, [currentUser._id, post.likes]);
-   useEffect(() => {
+   useLayoutEffect(() => {
       const fetchUsers = async () => {
          const res = await axios.get(`api/user?userId=${post.userId}`);
          setUser(res.data);
@@ -37,16 +38,31 @@ function PostItem({ post }) {
          <div className={cn("post-header")}>
             <Link to={`/profile/${user.username}/posts`}>
                <img
-                  src={user.profileImg || "/images/no-avatar.jpg"}
+                  src={
+                     user.profileImg == ""
+                        ? "/images/no-avatar.jpg"
+                        : user.profileImg
+                  }
                   alt="avatar"
                />
             </Link>
             <Link to={`/profile/${user.username}/posts`}>
                <span className={cn("name")}>{user.username}</span>
             </Link>
-            <span className={cn("timeline")}>• {format(post.createdAt)}</span>
+            <span className={cn("timeline")}> • {format(post.createdAt)}</span>
+            <div className={cn("edit-post")}>
+               <span className={cn("edit-menu")}>
+                  <i className="fa-solid fa-ellipsis"></i>
+               </span>
+            </div>
          </div>
-         <div className={cn("post-img")}></div>
+         <div className={cn("post-img")}>
+            <img
+               src={`/images/${post.img}`}
+               alt=""
+               onDoubleClick={handleLike}
+            />
+         </div>
          <div className={cn("post-status")}>
             <div className={cn("like-box")} onClick={handleLike}>
                {isLike ? (
@@ -67,9 +83,7 @@ function PostItem({ post }) {
                <span>{likes}</span> likes
             </h5>
 
-            <p>
-               <span>{post.desc}</span>
-            </p>
+            <p>{post.desc}</p>
          </div>
       </div>
    );

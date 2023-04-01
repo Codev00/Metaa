@@ -12,7 +12,7 @@ function SuggestItem({ user }) {
    const currentUser = useSelector((state) => state.user.userInfo);
    const [followed, setFollowed] = useState(false);
    useEffect(() => {
-      setFollowed(currentUser.followings.includes(user?._id));
+      setFollowed(user.followers.includes(currentUser._id));
    }, [currentUser, user._id]);
    const handleFollow = async () => {
       try {
@@ -39,7 +39,7 @@ function SuggestItem({ user }) {
             />
          </div>
          <div className={cn("name")}>
-            <Link to={`/profile/${user.username}`}>
+            <Link to={`/profile/${user.username}/posts`}>
                <span>{user.username}</span>
             </Link>
          </div>

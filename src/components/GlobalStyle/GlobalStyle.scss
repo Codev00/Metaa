@@ -7,7 +7,7 @@
    --bg--sidebar--dark: #000000;
    --bg--dark: #121212;
    --text--dark: #ffffff;
-   --line--light: #dbdbdb;
+   --line--light: #333;
    --width--sidebar: 18%;
    --width--container: calc(100% - var(--width--sidebar));
    --width--suggest: 25%;
@@ -38,4 +38,30 @@ i.fa-solid.fa-heart.like:hover {
 a {
    text-decoration: none;
    color: #333;
+}
+
+.dark {
+   :where(div) {
+      background-color: #000000;
+   }
+   :where(p, h1, h2, h3, h4, h5, h6, i, span) {
+      color: white;
+   }
+}
+
+.light {
+   div {
+      background: #ffffff;
+   }
+   p,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   i,
+   span {
+      color: #000000;
+   }
 }
