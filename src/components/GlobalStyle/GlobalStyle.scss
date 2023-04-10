@@ -18,12 +18,14 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: "Mali", "Roboto", "Segoe UI", Tahoma, Geneva, Verdana;
 }
 
 body {
    display: inline-block;
    position: relative;
-   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   font-family: "Mali", "Roboto", "Segoe UI", Tahoma, Geneva, Verdana,
+      sans-serif;
    overflow: hidden;
 }
 html {
@@ -64,4 +66,8 @@ a {
    span {
       color: #000000;
    }
+}
+
+.App {
+   position: relative;
 }

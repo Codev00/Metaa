@@ -61,7 +61,7 @@ function Sidebar() {
       <div className={cn("Sidebar")}>
          <div className={cn("logo")}>
             <Link to="/">
-               <h1>Metaa</h1>
+               <h1>Meta</h1>
             </Link>
          </div>
          <div className={cn("nav-bar")}>

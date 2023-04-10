@@ -10,6 +10,7 @@ const cn = classNames.bind(Style);
 
 function News() {
    const [posts, setPosts] = useState([]);
+   const [postShow, setPostShow] = useState(10);
    const user = useSelector((state) => state.user.userInfo);
    useEffect(() => {
       const fetchPosts = async () => {
@@ -25,9 +26,10 @@ function News() {
    return (
       <div className={cn("main")}>
          <Posts>
-            {posts.map((post) => (
-               <PostItem post={post} key={post._id} />
-            ))}
+            {posts.map(
+               (post, index) =>
+                  index <= postShow && <PostItem post={post} key={post._id} />
+            )}
          </Posts>
       </div>
    );

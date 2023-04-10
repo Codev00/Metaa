@@ -5,7 +5,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { object } from "prop-types";
+import PostDetail from "../PostDetail";
 
 const cn = classNames.bind(Style);
 
@@ -13,6 +13,7 @@ function PostItem({ post }) {
    const [user, setUser] = useState({});
    const [likes, setLikes] = useState(post.likes.length);
    const [isLike, setIsLike] = useState(false);
+   const [cmt, setCmt] = useState(false);
    const currentUser = useSelector((state) => state.user.userInfo);
    useLayoutEffect(() => {
       setIsLike(post.likes.includes(currentUser._id));
@@ -32,6 +33,9 @@ function PostItem({ post }) {
       } catch (error) {}
       setLikes(isLike ? likes - 1 : likes + 1);
       setIsLike(!isLike);
+   };
+   const handleCmt = () => {
+      setCmt(true);
    };
    return (
       <div className={cn("post-item")}>
@@ -72,7 +76,9 @@ function PostItem({ post }) {
                )}
             </div>
             <div className={cn("cmt")}>
-               <i className={cn("fa-regular fa-comment-dots")}></i>
+               <span onClick={handleCmt}>
+                  <i className={cn("fa-regular fa-comment-dots")}></i>
+               </span>
             </div>
             <div className={cn("share")}>
                <i className={cn("fa-regular fa-paper-plane")}></i>
@@ -85,6 +91,16 @@ function PostItem({ post }) {
 
             <p>{post.desc}</p>
          </div>
+         <PostDetail
+            like={isLike}
+            curUser={currentUser}
+            user={user}
+            post={post}
+            cmt={cmt}
+            setCmt={(value) => {
+               setCmt(value);
+            }}
+         />
       </div>
    );
 }

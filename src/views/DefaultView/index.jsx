@@ -7,8 +7,8 @@ const cn = classNames.bind(Style);
 function DefaultView({ children }) {
    return (
       <div className={cn("wrapper")}>
-         <Sidebar />
          <div className={cn("container")}>{children}</div>
+         <Sidebar />
       </div>
    );
 }

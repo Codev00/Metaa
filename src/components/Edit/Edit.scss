@@ -42,7 +42,7 @@
                color: rgb(27, 27, 207);
                cursor: pointer;
                &:hover {
-                  color: #ffffff;
+                  color: #dfdfdf;
                }
             }
          }
@@ -130,6 +130,7 @@
             height: 32px;
             color: #ffffff;
             font-weight: 600;
+            cursor: pointer;
          }
       }
    }

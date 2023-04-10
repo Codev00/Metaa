@@ -1,6 +1,28 @@
+import axios from "axios";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "../../redux/userSlice";
 import "./Edit.scss";
 
 function Edit() {
+   const user = useSelector((state) => state.user.userInfo);
+   const [name, setName] = useState(user.username);
+   const [desc, setDesc] = useState(user.desc);
+   const dispatch = useDispatch();
+   const handleSubmit = async () => {
+      try {
+         const dataForm = {
+            userId: user._id,
+            username: name,
+            desc: desc,
+         };
+         await axios.put(`/api/user/${user._id}`, dataForm);
+         const res = axios.get(`/api/user?userId=${user._id}`);
+         dispatch(loadUser(res.data));
+      } catch (err) {
+         console.log({ Error: err });
+      }
+   };
    return (
       <div>
          <div className="body">
@@ -12,7 +34,7 @@ function Edit() {
                   </div>
                   <div className="change">
                      <div className="change-item">
-                        <span>Name</span>
+                        <span>{user.username}</span>
                         <label htmlFor="file">Change profile photo</label>
                         <input type="file" id="file" hidden />
                      </div>
@@ -27,6 +49,8 @@ function Edit() {
                      maxLength={20}
                      placeholder=""
                      autoComplete="off"
+                     value={name}
+                     onChange={(e) => setName(e.target.value)}
                   />
                </div>
                <div className="desc gender">
@@ -47,11 +71,14 @@ function Edit() {
                      rows="5"
                      maxLength={150}
                      autoComplete="off"
+                     autoCorrect="off"
+                     value={desc}
+                     onChange={(e) => setDesc(e.target.value)}
                   ></textarea>
                </div>
                <div className="submit">
                   <aside></aside>
-                  <button>Submit</button>
+                  <button onClick={handleSubmit}>Submit</button>
                </div>
             </div>
          </div>

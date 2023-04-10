@@ -18,7 +18,7 @@ function Home() {
       }
    }, []);
    useLayoutEffect(() => {
-      window.document.title = "Metaa" + " • " + user.username;
+      window.document.title = "Meta" + " • " + "@" + user.username;
    }, []);
    return (
       <Fragment>

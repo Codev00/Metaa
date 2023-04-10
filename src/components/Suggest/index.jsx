@@ -49,9 +49,10 @@ function Suggest() {
          </div>
          <div className={cn("Suggest-list")}>
             <span>Suggestions for you</span>
-            {sugList.map((user) => (
-               <SuggestItem key={user._id} user={user} />
-            ))}
+            {sugList.map(
+               (user, index) =>
+                  index < 6 && <SuggestItem key={user._id} user={user} />
+            )}
          </div>
       </div>
    );

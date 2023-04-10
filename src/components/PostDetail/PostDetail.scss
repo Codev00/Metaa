@@ -1,0 +1,203 @@
+.post-detail {
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   right: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   z-index: 1;
+   background-color: rgba(0, 0, 0, 0.6);
+   .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+   }
+   .post {
+      height: 600px;
+      width: 1000px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      display: flex;
+      color: #fff;
+      overflow: hidden;
+      .images-post {
+         height: 100%;
+         width: 500px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         img {
+            max-height: 600px;
+            width: 100%;
+            object-fit: cover;
+         }
+      }
+      .cmt-post {
+         border-left: 1px solid #333;
+         width: 500px;
+         .user {
+            width: 100%;
+            background-color: transparent;
+            height: 60px;
+            border-bottom: 1px solid #333;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .avatar {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: 100px;
+               img {
+                  width: 45px;
+                  height: 45px;
+                  border-radius: 45px;
+               }
+            }
+         }
+         .cmt-show {
+            background-color: transparent;
+            border-bottom: 1px solid #333;
+            height: 360px;
+            width: 100%;
+            padding: 0 15px;
+            padding-bottom: 10px;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            &::-webkit-scrollbar {
+               width: 0 !important;
+               overflow: hidden;
+            }
+            .cmt-item {
+               width: 100%;
+               display: flex;
+               flex-direction: row;
+               align-items: flex-start;
+               margin-bottom: 10px;
+               .avt {
+                  width: 70px;
+                  height: 100%;
+
+                  img {
+                     height: 40px;
+                     width: 40px;
+                     border-radius: 40px;
+                  }
+               }
+               .comment-box {
+                  min-height: 50px;
+                  width: 380px;
+                  .user-name {
+                     font-weight: bold;
+                     font-style: italic;
+                  }
+                  .comment {
+                     span {
+                        font-size: 14px;
+                        word-wrap: break-word;
+                     }
+                  }
+                  .status {
+                     font-size: 12px;
+                     span {
+                        margin-right: 20px;
+                     }
+                  }
+               }
+            }
+         }
+         .status-bar {
+            background-color: transparent;
+            border-bottom: 1px solid #333;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            padding: 5px 10px;
+            .status {
+               display: flex;
+               flex-direction: row;
+               height: 50%;
+               i {
+                  cursor: pointer;
+               }
+               div {
+                  font-size: 20px;
+                  margin-right: 10px;
+               }
+            }
+            .likes {
+               height: 50%;
+            }
+         }
+         .cmt {
+            background-color: transparent;
+            overflow: hidden;
+            width: 100%;
+            height: 70px;
+            .cmt-box {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               width: 100%;
+               height: 100%;
+               padding: 10px 0px;
+
+               .emoji {
+                  width: 10%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  i {
+                     font-size: 27px;
+                  }
+               }
+               .comment-text {
+                  display: flex;
+                  width: 80%;
+                  textarea {
+                     color: #fff;
+                     width: 100%;
+                     background: transparent;
+                     outline: none;
+                     border: none;
+                     resize: none;
+                     height: 30px;
+                     margin-right: 5px;
+                     /* width */
+                     &::-webkit-scrollbar {
+                        width: 10px;
+                     }
+
+                     /* Track */
+                     &::-webkit-scrollbar-track {
+                        background: black;
+                     }
+
+                     /* Handle */
+                     &::-webkit-scrollbar-thumb {
+                        background: #333;
+                        border-radius: 10px;
+                        margin: 3px;
+                        min-height: 10px;
+                     }
+                  }
+               }
+               .submit-cmt {
+                  span {
+                     cursor: pointer;
+                     color: #73a1cd;
+                     font-weight: 500;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
