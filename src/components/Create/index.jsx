@@ -39,33 +39,16 @@ function Create({ data, setData }) {
    const handleSubmit = async (e) => {
       e.preventDefault();
 
-      const newPost = {
-         userId: user._id,
-         desc: desc.current.value,
-         img: [],
-      };
       if (files) {
          const data = new FormData();
-         for (var i = 0; i < files.length; i++) {
-            const fileName =
-               Date.now() +
-               "-" +
-               files[i].name.toLowerCase().split(" ").join("-");
-            data.append("images", files[i]);
-         }
+         data.append("image", files[0]);
+         data.append("description", desc.current.value);
+         data.append("userId", user._id);
          try {
-            const res = await axios.post("/api/images/upload", data);
-            for (const file of res.data) {
-               newPost.img.push(file.filename);
-            }
+            await axios.post("/api/post/create", data);
          } catch (err) {
             console.log({ error: err });
          }
-      }
-      try {
-         await axios.post("/api/posts", newPost);
-      } catch (err) {
-         console.log({ error: err });
       }
       handleClose();
    };
