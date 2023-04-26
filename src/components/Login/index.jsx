@@ -26,7 +26,7 @@ function Login() {
    return (
       <div className={cn("login")}>
          <form className={cn("form")} onSubmit={handleSubmit}>
-            <h2>Meta</h2>
+            <h2>Welcom Back</h2>
             <input
                type="email"
                placeholder="Email"
@@ -35,6 +35,7 @@ function Login() {
                required
                ref={email}
             />
+
             <input
                type="password"
                placeholder="Password"
