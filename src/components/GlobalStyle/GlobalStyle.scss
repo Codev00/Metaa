@@ -49,10 +49,10 @@ a {
 
 .dark {
    :where(div) {
-      background-color: #000000;
+      background-color: var(--color-top-black);
    }
    :where(p, h1, h2, h3, h4, h5, h6, i, span) {
-      color: white;
+      color: var(--ghost-accent-color);
    }
 }
 

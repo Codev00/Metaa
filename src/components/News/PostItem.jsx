@@ -62,7 +62,7 @@ function PostItem({ post }) {
          </div>
          <div className={cn("post-img")}>
             <img
-               src={post.img || `/images/${post.img}`}
+               src={`/images/${post.img}` || post.img}
                alt=""
                onDoubleClick={handleLike}
             />
