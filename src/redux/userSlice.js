@@ -8,6 +8,7 @@ export const userSlice = createSlice({
       pending: null,
       error: false,
       userList: [],
+      msg: "",
    },
    reducers: {
       getAllUser: (state, action) => {
@@ -16,6 +17,9 @@ export const userSlice = createSlice({
       logOut: (state) => {
          state.userInfo = null;
          state.userList = [];
+      },
+      msg: (state, action) => {
+         state.msg = action.payload;
       },
       loadUser: (state, action) => {
          state.userInfo = action.payload;
@@ -30,12 +34,13 @@ export const userSlice = createSlice({
          state.pending = false;
          state.userInfo = action.payload;
       });
-      builder.addCase(login.rejected, (state) => {
+      builder.addCase(login.rejected, (state, action) => {
          state.pending = false;
          state.error = true;
+         state.msg = action.payload;
       });
    },
 });
 
-export const { getAllUser, logOut, loadUser } = userSlice.actions;
+export const { getAllUser, logOut, loadUser, msg } = userSlice.actions;
 export default userSlice.reducer;

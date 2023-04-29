@@ -1,9 +1,11 @@
 import classNames from "classnames/bind";
 import { useEffect } from "react";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/callsAPI";
+import { msg } from "../../redux/userSlice";
+
 import Style from "./Login.module.scss";
 
 const cn = classNames.bind(Style);
@@ -13,6 +15,7 @@ function Login() {
    const password = useRef();
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const msg = useSelector((state) => state.user.msg);
    const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(
@@ -44,6 +47,7 @@ function Login() {
             />
             <input type="submit" value="Sign In" className={cn("submit")} />
          </form>
+         <p>{msg}</p>
       </div>
    );
 }
