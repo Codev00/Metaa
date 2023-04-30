@@ -16,13 +16,15 @@
       cursor: pointer;
    }
    .post {
+      position: absolute;
       height: 600px;
       width: 1000px;
-      border: 1px solid #333;
+      border: 1px solid var(--ghost-accent-color);
       border-radius: 10px;
       display: flex;
       color: #fff;
       overflow: hidden;
+      right: 60px;
       .images-post {
          height: 100%;
          width: 500px;
@@ -37,13 +39,13 @@
          }
       }
       .cmt-post {
-         border-left: 1px solid #333;
+         border-left: 1px solid var(--ghost-accent-color);
          width: 500px;
          .user {
             width: 100%;
             background-color: transparent;
             height: 60px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--ghost-accent-color);
             border-radius: 5px;
             display: flex;
             flex-direction: row;
@@ -62,7 +64,7 @@
          }
          .cmt-show {
             background-color: transparent;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--ghost-accent-color);
             height: 360px;
             width: 100%;
             padding: 0 15px;
@@ -114,7 +116,7 @@
          }
          .status-bar {
             background-color: transparent;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--ghost-accent-color);
             height: 100px;
             display: flex;
             flex-direction: column;
@@ -190,10 +192,11 @@
                   }
                }
                .submit-cmt {
+                  margin-right: 10px;
                   span {
                      cursor: pointer;
-                     color: #73a1cd;
-                     font-weight: 500;
+                     color: var(--color-green);
+                     font-weight: 600;
                   }
                }
             }

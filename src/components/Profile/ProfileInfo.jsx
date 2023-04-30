@@ -5,12 +5,13 @@ import { useLayoutEffect, useState } from "react";
 import { useEffect } from "react";
 import Follow from "../Follow";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const cn = classNames.bind(Style);
 
 function ProfileInfo() {
    const curUser = useSelector((state) => state.user.userInfo);
    const navigate = useNavigate();
+   const dispatch = useDispatch();
    const [user, setUser] = useState({});
    const [post, setPost] = useState([]);
    const [followed, setFollowed] = useState(false);
@@ -29,7 +30,7 @@ function ProfileInfo() {
       };
       fetchUser();
       fetchPost();
-   }, [username, followed]);
+   }, [username, followed, curUser]);
    useEffect(() => {
       if (curUser.username != username) {
          if (curUser.followings.includes(user?._id)) {
@@ -63,12 +64,27 @@ function ProfileInfo() {
    const handleShowFollowings = () => {
       setFollow("Followings");
    };
-
+   const handleChangeImg = async (e) => {
+      const img = e.target.files[0];
+      const data = new FormData();
+      data.append("image", img);
+      try {
+         await axios.put(`/api/user/update/${user._id}`, data);
+      } catch (err) {
+         console.log(err);
+      }
+   };
    return (
       <div className={cn("profile")}>
          <header>
             <div className={cn("avatar")}>
-               <img src="/images/no-avatar.jpg" alt="no avatar" />
+               <label htmlFor="avt">
+                  <img
+                     src={user.profileImg || "/images/no-avatar.jpg"}
+                     alt="no avatar"
+                  />
+               </label>
+               <input type="file" id="avt" onChange={handleChangeImg} hidden />
             </div>
             <div className={cn("info")}>
                <div className={cn("name")}>

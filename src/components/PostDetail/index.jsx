@@ -4,6 +4,7 @@ import Comment from "./Comment";
 import { useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import { useRef } from "react";
+import Avatar from "../CircleAvatar";
 function PostDetail({ post, cmt, setCmt, user, curUser }) {
    const [isLike, setIsLike] = useState(false);
    const [likes, setLikes] = useState(post.likes.length);
@@ -72,7 +73,10 @@ function PostDetail({ post, cmt, setCmt, user, curUser }) {
             <div className="cmt-post">
                <div className="user">
                   <div className="avatar">
-                     <img src="/images/no-avatar.jpg" alt="avt" />
+                     <Avatar
+                        url={user.profileImg || "/images/no-avatar.jpg"}
+                        size={45}
+                     />
                   </div>
                   <div className="name">
                      <span>{user.username}</span>

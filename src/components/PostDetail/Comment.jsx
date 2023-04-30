@@ -3,6 +3,7 @@ import { format } from "timeago.js";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import Avatar from "../CircleAvatar";
 
 function Comment({ cmt }) {
    const [user, setUser] = useState();
@@ -16,13 +17,9 @@ function Comment({ cmt }) {
    return (
       <div className="cmt-item">
          <div className="avt">
-            <img
-               src={
-                  user?.profileImg == ""
-                     ? "/images/no-avatar.jpg"
-                     : user?.profileImg
-               }
-               alt="avt"
+            <Avatar
+               url={user?.profileImg || "/images/no-avatar.jpg"}
+               size={45}
             />
          </div>
          <div className="comment-box">

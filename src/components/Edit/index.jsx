@@ -16,7 +16,7 @@ function Edit() {
             username: name,
             desc: desc,
          };
-         await axios.put(`/api/user/${user._id}`, dataForm);
+         await axios.put(`/api/user/update/${user._id}`, dataForm);
          const res = axios.get(`/api/user?userId=${user._id}`);
          dispatch(loadUser(res.data));
       } catch (err) {
@@ -27,8 +27,8 @@ function Edit() {
       const img = e.target.files[0];
       try {
          const formData = new FormData();
-         formData.append("profileImg", img);
-         await axios.put(`/api/user/${user._id}`, formData);
+         formData.append("image", img);
+         await axios.put(`/api/user/update/${user._id}`, formData);
       } catch (err) {
          console.log(err);
       }
@@ -40,7 +40,10 @@ function Edit() {
             <div className="edit">
                <div className="avatar">
                   <div className="img">
-                     <img src="/images/no-avatar.jpg" alt="" />
+                     <img
+                        src={user.profileImg || "/images/no-avatar.jpg"}
+                        alt=""
+                     />
                   </div>
                   <div className="change">
                      <div className="change-item">

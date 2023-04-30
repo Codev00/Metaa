@@ -30,8 +30,13 @@ function Auth() {
    };
    useLayoutEffect(() => {
       if (token) {
-         dispatch(autoLogin(token));
-         nevigate("/");
+         try {
+            dispatch(autoLogin(token));
+            nevigate("/");
+         } catch (error) {
+            console.log(error);
+            setShow(true);
+         }
       } else {
          setShow(true);
       }

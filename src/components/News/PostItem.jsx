@@ -6,6 +6,7 @@ import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PostDetail from "../PostDetail";
+import Avatar from "../CircleAvatar";
 
 const cn = classNames.bind(Style);
 
@@ -41,13 +42,9 @@ function PostItem({ post }) {
       <div className={cn("post-item")}>
          <div className={cn("post-header")}>
             <Link to={`/profile/${user.username}/posts`}>
-               <img
-                  src={
-                     user.profileImg == ""
-                        ? "/images/no-avatar.jpg"
-                        : user.profileImg
-                  }
-                  alt="avatar"
+               <Avatar
+                  url={user.profileImg || "/images/no-avatar.jpg"}
+                  size={50}
                />
             </Link>
             <Link to={`/profile/${user.username}/posts`}>

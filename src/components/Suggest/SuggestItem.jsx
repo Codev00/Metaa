@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Style from "./Suggest.module.scss";
+import Avatar from "../CircleAvatar";
 
 const cn = classNames.bind(Style);
 
@@ -33,9 +34,9 @@ function SuggestItem({ user }) {
    return (
       <div className={cn("Suggest-item")}>
          <div className={cn("avatar")}>
-            <img
-               src={user.profileImg || "/images/no-avatar.jpg"}
-               alt="no avatar"
+            <Avatar
+               url={user.profileImg || "/images/no-avatar.jpg"}
+               size={45}
             />
          </div>
          <div className={cn("name")}>

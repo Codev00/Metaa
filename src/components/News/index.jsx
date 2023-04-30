@@ -31,6 +31,7 @@ function News() {
                   index <= postShow && <PostItem post={post} key={post._id} />
             )}
          </Posts>
+         
       </div>
    );
 }

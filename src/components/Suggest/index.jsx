@@ -7,6 +7,7 @@ import axios from "axios";
 import { getAllUser, logOut } from "../../redux/userSlice";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
+import Avatar from "../CircleAvatar";
 
 const cn = classNames.bind(Style);
 
@@ -39,7 +40,10 @@ function Suggest() {
       <div className={cn("Suggest")}>
          <div className={cn("user")}>
             <div className={cn("user-avatar")}>
-               <img src="/images/no-avatar.jpg" alt="no avatar" />
+               <Avatar
+                  url={user.profileImg || "/images/no-avatar.jpg"}
+                  size={50}
+               />
             </div>
             <div className={cn("user-name")}>
                <span>{user.username}</span>
