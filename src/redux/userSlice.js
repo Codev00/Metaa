@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login } from "./callsAPI";
+import { login, autoLogin } from "./callsAPI";
 
 export const userSlice = createSlice({
    name: "user",
@@ -35,6 +35,19 @@ export const userSlice = createSlice({
          state.userInfo = action.payload;
       });
       builder.addCase(login.rejected, (state, action) => {
+         state.pending = false;
+         state.error = true;
+         state.msg = action.payload;
+      });
+      builder.addCase(autoLogin.pending, (state) => {
+         state.pending = true;
+         state.error = false;
+      });
+      builder.addCase(autoLogin.fulfilled, (state, action) => {
+         state.pending = false;
+         state.userInfo = action.payload;
+      });
+      builder.addCase(autoLogin.rejected, (state, action) => {
          state.pending = false;
          state.error = true;
          state.msg = action.payload;

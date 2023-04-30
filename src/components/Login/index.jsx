@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/callsAPI";
-import { msg } from "../../redux/userSlice";
+import { useCookies } from "react-cookie";
 
 import Style from "./Login.module.scss";
 
@@ -16,11 +16,13 @@ function Login() {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const msg = useSelector((state) => state.user.msg);
+   const [cookies, setCookies] = useCookies("token");
    const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(
          login({ email: email.current.value, password: password.current.value })
       );
+      setCookies("token", document.cookie);
       navigate("/");
    };
    useEffect(() => {

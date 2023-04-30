@@ -18,4 +18,22 @@ const login = createAsyncThunk(
    }
 );
 
-export { login };
+const autoLogin = createAsyncThunk(
+   "auth/autologin",
+   async (token, { rejectWithValue }) => {
+      try {
+         const res = await axios.get("/api/auth/autoLogin", {
+            headers: {
+               Authorization: `Bearer ${token}`,
+            },
+         });
+         return res.data;
+      } catch (error) {
+         const err = error.response.data;
+         console.log(err);
+         return rejectWithValue(err);
+      }
+   }
+);
+
+export { login, autoLogin };

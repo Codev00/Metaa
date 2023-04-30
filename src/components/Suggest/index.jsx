@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { getAllUser, logOut } from "../../redux/userSlice";
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 const cn = classNames.bind(Style);
 
@@ -14,6 +15,7 @@ function Suggest() {
    const suggest = useSelector((state) => state.user.userList);
    const [sugList, setSugList] = useState([]);
    const dispatch = useDispatch();
+   const [cookies, setCookies, removeCookies] = useCookies("token");
    useEffect(() => {
       setSugList([]);
       for (const sug of suggest) {
@@ -30,6 +32,7 @@ function Suggest() {
       fetchSuggest();
    }, [user]);
    const handleLogOut = () => {
+      removeCookies("token");
       dispatch(logOut());
    };
    return (
