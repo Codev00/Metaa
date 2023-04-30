@@ -1,9 +1,11 @@
 import classNames from "classnames/bind";
 import { useEffect } from "react";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/callsAPI";
+import { useCookies } from "react-cookie";
+
 import Style from "./Login.module.scss";
 
 const cn = classNames.bind(Style);
@@ -13,11 +15,14 @@ function Login() {
    const password = useRef();
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const msg = useSelector((state) => state.user.msg);
+   const [cookies, setCookies] = useCookies("token");
    const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(
          login({ email: email.current.value, password: password.current.value })
       );
+      setCookies("token", document.cookie);
       navigate("/");
    };
    useEffect(() => {
@@ -26,7 +31,7 @@ function Login() {
    return (
       <div className={cn("login")}>
          <form className={cn("form")} onSubmit={handleSubmit}>
-            <h2>Meta</h2>
+            <h2>Welcome Back</h2>
             <input
                type="email"
                placeholder="Email"
@@ -35,6 +40,7 @@ function Login() {
                required
                ref={email}
             />
+
             <input
                type="password"
                placeholder="Password"
@@ -43,6 +49,7 @@ function Login() {
             />
             <input type="submit" value="Sign In" className={cn("submit")} />
          </form>
+         <p>{msg}</p>
       </div>
    );
 }

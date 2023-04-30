@@ -15,7 +15,7 @@
       height: 600px;
       width: 700px;
       flex-direction: column;
-      background: rgba(0, 0, 0, 1);
+      background: var(--color-top-black);
       z-index: 10;
       border: 1px solid #333;
       border-radius: 10px;
@@ -45,14 +45,14 @@
             justify-content: center;
             align-items: center;
             background-color: transparent;
-            border: 1px solid #333;
             border-radius: 3px;
             h4 {
                font-size: 15px;
-               font-weight: 500;
+               font-weight: 600;
                padding: 3px 10px;
-               background-color: #2197fa;
+               background-color: transparent;
                border-radius: 5px;
+               border: 1px solid var(--color-green);
                cursor: pointer;
             }
             .previewImg {
@@ -72,17 +72,17 @@
          .desc {
             margin-top: 10px;
             display: flex;
-            border: 1px solid #333;
-            border-radius: 3px;
+            border-top: 1px solid var(--color-green);
+
             height: 25%;
             display: flex;
             textarea {
                outline: none;
                border: none;
-               width: 80%;
+               width: 100%;
                font-size: 1.2rem;
                resize: none;
-               padding: 5px 8px;
+               padding: 10px 8px;
                background-color: transparent;
                color: #fff;
                &::-webkit-scrollbar {
@@ -101,9 +101,9 @@
             justify-content: center;
             align-items: center;
             button {
-               color: aliceblue;
+               color: var(--color-green);
                outline: none;
-               border: 1px solid #333;
+               border: 1px solid var(--color-green);
                border-radius: 7px;
                padding: 7px 10px;
                width: 100px;
@@ -111,6 +111,10 @@
                font-size: 1rem;
                background-color: transparent;
                cursor: pointer;
+               &:hover {
+                  background-color: var(--color-green);
+                  color: #fff;
+               }
             }
          }
       }
@@ -120,7 +124,7 @@
       top: 20px;
       right: 25px;
       font-size: 30px;
-      color: var(--bg--sidebar--light);
+      color: var(--color-green);
       font-weight: 500;
       cursor: pointer;
    }

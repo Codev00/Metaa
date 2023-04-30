@@ -12,7 +12,7 @@
    border: transparent;
    max-height: 999999px;
    width: 500px;
-   border-bottom: 1px solid var(--line--light);
+   border-bottom: 1px solid var(--color-light-black);
    padding-bottom: 15px;
    margin-bottom: 20px;
    .post-header {
@@ -43,7 +43,8 @@
          line-height: 50px;
       }
       .timeline {
-         color: #8e8e9c;
+         color: var(--ghost-accent-color);
+         opacity: 0.4;
       }
       .edit-post {
          position: absolute;
@@ -53,9 +54,9 @@
             cursor: pointer;
             transition: 0.25 ease-in;
             i {
-               color: #8e8e9c;
+               color: var(--ghost-accent-color);
                &:hover {
-                  color: #54545a;
+                  color: var(--color-green);
                }
             }
          }
@@ -66,7 +67,7 @@
       width: 500px;
       border: 1px solid transparent;
       border-radius: 7px;
-      background: black;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;

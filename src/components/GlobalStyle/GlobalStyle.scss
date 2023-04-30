@@ -12,6 +12,11 @@
    --width--container: calc(100% - var(--width--sidebar));
    --width--suggest: 25%;
    --shadow--box: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+   --ghost-accent-color: #4ad295;
+   --color-body-black: #182029;
+   --color-top-black: #11181f;
+   --color-light-black: #1a1f25;
+   --color-green: #1b904e;
 }
 
 * {
@@ -44,10 +49,10 @@ a {
 
 .dark {
    :where(div) {
-      background-color: #000000;
+      background-color: var(--color-top-black);
    }
    :where(p, h1, h2, h3, h4, h5, h6, i, span) {
-      color: white;
+      color: var(--ghost-accent-color);
    }
 }
 

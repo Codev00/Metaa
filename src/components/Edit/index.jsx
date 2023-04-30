@@ -23,6 +23,16 @@ function Edit() {
          console.log({ Error: err });
       }
    };
+   const handleChangeAvatar = async (e) => {
+      const img = e.target.files[0];
+      try {
+         const formData = new FormData();
+         formData.append("profileImg", img);
+         await axios.put(`/api/user/${user._id}`, formData);
+      } catch (err) {
+         console.log(err);
+      }
+   };
    return (
       <div>
          <div className="body">
@@ -35,7 +45,9 @@ function Edit() {
                   <div className="change">
                      <div className="change-item">
                         <span>{user.username}</span>
-                        <label htmlFor="file">Change profile photo</label>
+                        <label htmlFor="file" onChange={handleChangeAvatar}>
+                           Change profile photo
+                        </label>
                         <input type="file" id="file" hidden />
                      </div>
                   </div>
@@ -78,7 +90,7 @@ function Edit() {
                </div>
                <div className="submit">
                   <aside></aside>
-                  <button onClick={handleSubmit}>Submit</button>
+                  <button onClick={handleSubmit}>Saved</button>
                </div>
             </div>
          </div>

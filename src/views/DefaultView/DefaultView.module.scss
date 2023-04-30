@@ -16,12 +16,12 @@
 
    /* Track */
    &::-webkit-scrollbar-track {
-      background: black;
+      background: var(--color-top-black);
    }
 
    /* Handle */
    &::-webkit-scrollbar-thumb {
-      background: #333;
+      background: var(--color-body-black);
       border-radius: 10px;
       margin: 3px;
       min-height: 70px;

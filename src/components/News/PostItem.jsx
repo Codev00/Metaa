@@ -27,7 +27,7 @@ function PostItem({ post }) {
    }, [post.userId]);
    const handleLike = async () => {
       try {
-         await axios.put("/api/posts/" + post._id + "/like", {
+         await axios.put("/api/post/" + post._id + "/like", {
             userId: currentUser._id,
          });
       } catch (error) {}
@@ -62,7 +62,7 @@ function PostItem({ post }) {
          </div>
          <div className={cn("post-img")}>
             <img
-               src={`/images/${post.img}`}
+               src={`/images/${post.img}` || post.img}
                alt=""
                onDoubleClick={handleLike}
             />
