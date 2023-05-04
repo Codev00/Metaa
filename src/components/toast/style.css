@@ -1,0 +1,53 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+#toast {
+   position: fixed;
+   right: 20px;
+   top: 32px;
+}
+.toast {
+   display: flex;
+   align-items: center;
+   background-color: aliceblue;
+   border-radius: 3px;
+   border-left: 4px solid;
+   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+   min-width: 400px;
+   max-width: 450px;
+   animation: show 0.5s ease, fade 1s ease 3s forwards;
+}
+
+.icon {
+   padding: 0 16px;
+   font-size: 24px;
+}
+.body {
+   padding: 16px 16px;
+}
+.title {
+   font-size: 20px;
+   font-weight: 600;
+}
+.msg {
+   margin-top: 5px;
+}
+
+@keyframes show {
+   0% {
+      opacity: 0;
+      transform: translateX(200px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+@keyframes fade {
+   to {
+      opacity: 0;
+   }
+}

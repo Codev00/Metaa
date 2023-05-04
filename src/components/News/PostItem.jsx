@@ -58,11 +58,7 @@ function PostItem({ post }) {
             </div>
          </div>
          <div className={cn("post-img")}>
-            <img
-               src={`/images/${post.img}` || post.img}
-               alt=""
-               onDoubleClick={handleLike}
-            />
+            <img src={post.img} alt="" onDoubleClick={handleLike} />
          </div>
          <div className={cn("post-status")}>
             <div className={cn("like-box")} onClick={handleLike}>

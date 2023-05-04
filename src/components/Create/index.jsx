@@ -42,7 +42,7 @@ function Create({ data, setData }) {
       if (files) {
          const data = new FormData();
          data.append("image", files[0]);
-         data.append("description", desc.current.value);
+         data.append("desc", desc.current.value);
          data.append("userId", user._id);
          try {
             await axios.post("/api/post/create", data);

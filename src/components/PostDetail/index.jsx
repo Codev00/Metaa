@@ -68,7 +68,7 @@ function PostDetail({ post, cmt, setCmt, user, curUser }) {
          </span>
          <div className="post">
             <div className="images-post">
-               <img src={`/images/${post.img}`} alt="img" />
+               <img src={post.img} alt="img" />
             </div>
             <div className="cmt-post">
                <div className="user">
