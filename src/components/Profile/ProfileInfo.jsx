@@ -66,8 +66,10 @@ function ProfileInfo() {
    };
    const handleChangeImg = async (e) => {
       const img = e.target.files[0];
+      const userId = curUser._id;
       const data = new FormData();
       data.append("image", img);
+      data.append("userId", userId);
       try {
          await axios.put(`/api/user/update/${user._id}`, data);
       } catch (err) {
@@ -79,10 +81,7 @@ function ProfileInfo() {
          <header>
             <div className={cn("avatar")}>
                <label htmlFor="avt">
-                  <img
-                     src={user.profileImg || "/images/no-avatar.jpg"}
-                     alt="no avatar"
-                  />
+                  <img src={user.profileImg} alt="no avatar" />
                </label>
                <input type="file" id="avt" onChange={handleChangeImg} hidden />
             </div>
