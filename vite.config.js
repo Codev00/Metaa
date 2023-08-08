@@ -7,12 +7,12 @@ export default defineConfig({
    server: {
       proxy: {
          "/api": {
-            target: "http://localhost:8080",
+            target: "https://metaa-service.onrender.com",
             changeOrigin: true,
             secure: false,
          },
          "/images": {
-            target: "http://localhost:8080",
+            target: "https://metaa-service.onrender.com",
             changeOrigin: true,
          },
       },
