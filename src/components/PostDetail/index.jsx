@@ -40,7 +40,6 @@ function PostDetail({ post, cmt, setCmt, user, curUser }) {
       setLikes(isLike ? likes - 1 : likes + 1);
       setIsLike(!isLike);
    };
-   const handleCmt = () => {};
    const handleClose = () => {
       setCmt(false);
       setShow(false);
@@ -48,7 +47,7 @@ function PostDetail({ post, cmt, setCmt, user, curUser }) {
    const handleComment = async () => {
       try {
          const cmtForm = {
-            userId: user._id,
+            userId: curUser._id,
             postId: post._id,
             cmt: comment.current.value,
          };
@@ -85,7 +84,7 @@ function PostDetail({ post, cmt, setCmt, user, curUser }) {
 
                <div className="cmt-show">
                   {cmts.map((cmt, index) => (
-                     <Comment cmt={cmt} />
+                     <Comment cmt={cmt} key={index} />
                   ))}
                </div>
                <div className="status-bar">
